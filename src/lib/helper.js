@@ -172,7 +172,7 @@ module.exports = (function () {
                 if (code !== 0 || err) {
                     return reject(new Error(err));
                 }
-                if (output.indexOf(' no input ') >= 0) {
+                if (/^There are no input files to process\.\s$/.test(output)) {
                     return reject(new Error(helper.ERR.SOURCE));
                 }
                 resolve(output);
